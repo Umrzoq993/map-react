@@ -1,0 +1,61 @@
+@use "variables" as *;
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: $gap;
+
+  .card {
+    grid-column: span 3;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: $radius;
+    padding: 16px;
+    box-shadow: var(--shadow);
+    transition: transform $trans;
+    &:hover {
+      transform: translateY(-2px);
+    }
+    .label {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .value {
+      font-size: 28px;
+      font-weight: 700;
+      margin-top: 8px;
+    }
+    .trend {
+      margin-top: 6px;
+      font-size: 13px;
+    }
+    &.ok .trend {
+      color: var(--success);
+    }
+    &.warn .trend {
+      color: var(--warn);
+    }
+    &.bad .trend {
+      color: var(--danger);
+    }
+  }
+
+  @media (max-width: 1100px) {
+    .card {
+      grid-column: span 6;
+    }
+  }
+  @media (max-width: 700px) {
+    .card {
+      grid-column: span 12;
+    }
+  }
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: $radius;
+  padding: 16px;
+  box-shadow: var(--shadow);
+}

@@ -1,0 +1,63 @@
+@use "variables" as *;
+
+.app {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  grid-template-rows: 64px 1fr;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar content";
+  height: 100dvh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.header {
+  grid-area: header;
+  background: var(--panel);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.content {
+  grid-area: content;
+  padding: 20px;
+  overflow: auto;
+}
+
+.ps-sidebar-root {
+  grid-area: sidebar;
+  background: var(--panel) !important;
+  border-right: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  border-radius: 10px;
+  input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text);
+    &::placeholder {
+      color: var(--muted);
+    }
+  }
+}
